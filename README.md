@@ -16,6 +16,7 @@ Example input
 
 Example output
 --------------
+![golden frog](https://user-images.githubusercontent.com/118367/51060088-73106500-15bc-11e9-83f7-b5b1a0663429.png)
 ![tall frog](https://user-images.githubusercontent.com/118367/51000542-74c62400-14fb-11e9-9d0d-2d42b5ac55c2.png)
 ![frog forest](https://user-images.githubusercontent.com/118367/51010030-6cccab00-1520-11e9-9c6c-067366c9f1b1.png)
 

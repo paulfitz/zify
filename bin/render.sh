@@ -62,6 +62,6 @@ blender="blender"
 run "$blender -b $rblend -P $blpy"
 
 cd $base
-cp "$dir/output0001.jpg" $oimg
+convert "$dir/output0001.*" -trim $oimg
 echo "Saved to $oimg"
 
