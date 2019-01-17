@@ -51,7 +51,7 @@ context = bpy.context
 context.scene.render.filepath = "$homer"
 context.scene.frame_start = 1
 context.scene.frame_end = 1
-context.scene.render.resolution_percentage = 100
+# context.scene.render.resolution_percentage = 100
 bpy.ops.render.render(animation=True)
 bpy.ops.wm.save_mainfile(filepath="$blend", check_existing=False)
 EOF
