@@ -32,3 +32,13 @@ If you are willing to install everything mentioned in the
 ```
 ./zify.sh design/example.blend input/frog.png out.png
 ```
+
+You can control some parameters with environment variables:
+
+```
+ZIFY_SCALE=50 ZIFY_SAMPLES=20 ./zify.sh design/example.blend input/frog.png out.png
+```
+
+ * `ZIFY_SCALE` sets the render resolution as a percentage.
+ * `ZIFY_SAMPLES` sets the number of samples to make (set to 0 to use the setting for
+   previews in blender).

@@ -32,6 +32,8 @@ fimg_out=$(basename "$img_out")
 
 cmd="docker run -it --rm $args -v $PWD:/app --env HOME=/app \
  -v $dblend:/blend -v $dimg_in:/img_in -v $dimg_out:/img_out \
+ --env ZIFY_SCALE=$ZIFY_SCALE \
+ --env ZIFY_SAMPLES=$ZIFY_SAMPLES \
  paulfitz/zify ./zify.sh /blend/$fblend /img_in/$fimg_in /img_out/$fimg_out"
 echo $cmd
 $cmd

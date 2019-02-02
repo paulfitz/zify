@@ -45,13 +45,24 @@ res=100
 homer="$PWD/output"
 cat<<EOF
 import bpy
+import os
 bpy.data.fonts.get("example.ttf").filepath = "$rfont"
 bpy.data.fonts.get("example.ttf").pack()
 context = bpy.context
 context.scene.render.filepath = "$homer"
 context.scene.frame_start = 1
 context.scene.frame_end = 1
-# context.scene.render.resolution_percentage = 100
+if os.environ.get('ZIFY_SCALE'):
+    scale = context.scene.render.resolution_percentage
+    scale = int(scale * int(os.environ.get('ZIFY_SCALE')) / 100.0 + 0.5)
+    context.scene.render.resolution_percentage = scale
+if os.environ.get('ZIFY_SAMPLES'):
+    samples = int(os.environ.get('ZIFY_SAMPLES'))
+    if samples == 0:
+       samples = bpy.data.scenes["Scene"].cycles.preview_samples
+    bpy.data.scenes["Scene"].cycles.samples = samples
+print("Scale:", context.scene.render.resolution_percentage)
+print("Samples:", bpy.data.scenes["Scene"].cycles.samples)
 bpy.ops.render.render(animation=True)
 bpy.ops.wm.save_mainfile(filepath="$blend", check_existing=False)
 EOF
