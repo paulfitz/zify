@@ -61,6 +61,12 @@ if os.environ.get('ZIFY_SAMPLES'):
     if samples == 0:
        samples = bpy.data.scenes["Scene"].cycles.preview_samples
     bpy.data.scenes["Scene"].cycles.samples = samples
+if os.environ.get('ZIFY_DENOISING'):
+   bpy.data.scenes["Scene"].render.layers[0].cycles.use_denoising = True
+if os.environ.get('ZIFY_MAX_BOUNCES'):
+   bpy.data.scenes["Scene"].cycles.max_bounces = int(os.environ['ZIFY_MAX_BOUNCES'])
+if os.environ.get('ZIFY_MIN_BOUNCES'):
+   bpy.data.scenes["Scene"].cycles.min_bounces = int(os.environ['ZIFY_MIN_BOUNCES'])
 print("Scale:", context.scene.render.resolution_percentage)
 print("Samples:", bpy.data.scenes["Scene"].cycles.samples)
 bpy.ops.render.render(animation=True)
